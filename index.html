@@ -359,20 +359,20 @@
         /* Mission Vision Cards */
         .mission-vision {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 3rem;
             margin-top: 4rem;
         }
 
         .card {
             background: var(--white);
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px var(--shadow);
+            padding: 0;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
             transition: all 0.3s;
-            border: 2px solid transparent;
             position: relative;
             overflow: hidden;
+            border: 1px solid #e5e7eb;
         }
 
         .card::before {
@@ -381,32 +381,35 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px var(--shadow);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
             border-color: var(--secondary-color);
         }
 
         .card-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
+            display: none;
         }
 
         .card h4 {
-            color: var(--primary-color);
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+            color: var(--white);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            font-size: 1.6rem;
+            margin-bottom: 0;
+            padding: 2rem 2.5rem;
             font-weight: 700;
+            position: relative;
         }
 
         .card p {
-            color: var(--text-light);
+            color: var(--text-dark);
             font-size: 1.05rem;
             line-height: 1.8;
+            padding: 2.5rem;
         }
 
         /* Operations Section */
@@ -780,6 +783,43 @@
             color: var(--gold);
         }
 
+        .contact-card a[target="_blank"]:hover {
+            background: rgba(255,255,255,0.3) !important;
+            transform: translateY(-2px);
+        }
+
+        .contact-locations {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-quick {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .contact-quick a:hover,
+        .contact-locations > div:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+        }
+
+        .contact-quick a:hover .contact-icon,
+        .contact-locations a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .contact-locations,
+            .contact-quick {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* Footer */
         footer {
             background: #0a2540;
@@ -870,6 +910,10 @@
             .biosecurity-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -934,6 +978,10 @@
             }
 
             .biosecurity-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .mission-vision {
                 grid-template-columns: 1fr;
             }
         }
@@ -1232,28 +1280,47 @@
                 <p class="section-description">For business inquiries, technical support, or partnership opportunities, please contact us. Our team will be pleased to assist you.</p>
             </div>
 
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <div class="contact-icon">📍</div>
-                    <h4>Office Address</h4>
-                    <p>Ekantakuna-13<br>Lalitpur, Nepal</p>
+            <div class="contact-locations">
+                <!-- Office Location -->
+                <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 2.5rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.2); transition: all 0.3s;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="width: 50px; height: 50px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;">📍</div>
+                        <h4 style="color: var(--white); font-size: 1.4rem; margin: 0; font-weight: 700;">Office Address</h4>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.95); font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">Ekantakuna-13<br>Lalitpur, Nepal</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Ekantakuna+Lalitpur+Nepal" target="_blank" style="display: inline-block; padding: 12px 30px; background: var(--white); color: var(--primary-color); border-radius: 50px; text-decoration: none; font-size: 0.95rem; font-weight: 700; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">View on Google Maps →</a>
                 </div>
-                <div class="contact-card">
-                    <div class="contact-icon">🏭</div>
-                    <h4>Farm Location</h4>
-                    <p>Devbhumi<br>Panchkhal</p>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-icon">📞</div>
-                    <h4>Phone</h4>
-                    <p><a href="tel:+9779855067714">+977 9855067714</a></p>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-icon">✉️</div>
-                    <h4>Email</h4>
-                    <p><a href="mailto:avinepalpvt.ltd@gmail.com">avinepalpvt.ltd@gmail.com</a></p>
+
+                <!-- Farm Location -->
+                <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 2.5rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.2); transition: all 0.3s;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="width: 50px; height: 50px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;">🏭</div>
+                        <h4 style="color: var(--white); font-size: 1.4rem; margin: 0; font-weight: 700;">Farm Location</h4>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.95); font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">Devbhumi<br>Panchkhal, Nepal</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Devbhumi+Panchkhal+Nepal" target="_blank" style="display: inline-block; padding: 12px 30px; background: var(--white); color: var(--primary-color); border-radius: 50px; text-decoration: none; font-size: 0.95rem; font-weight: 700; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">View on Google Maps →</a>
                 </div>
             </div>
+
+            <!-- Contact Info -->
+            <div class="contact-quick">
+                <a href="tel:+9779855067714" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 2rem 2.5rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.2); display: flex; align-items: center; gap: 1.5rem; text-decoration: none; transition: all 0.3s;">
+                    <div style="width: 60px; height: 60px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; flex-shrink: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">📞</div>
+                    <div>
+                        <h4 style="color: rgba(255,255,255,0.8); font-size: 1rem; margin: 0 0 0.5rem 0; font-weight: 500; text-transform: uppercase; letter-spacing: 1px;">Call Us</h4>
+                        <p style="color: var(--white); font-size: 1.4rem; font-weight: 700; margin: 0;">+977 9855067714</p>
+                    </div>
+                </a>
+
+                <a href="mailto:avinepalpvt.ltd@gmail.com" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 2rem 2.5rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.2); display: flex; align-items: center; gap: 1.5rem; text-decoration: none; transition: all 0.3s;">
+                    <div style="width: 60px; height: 60px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; flex-shrink: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">✉️</div>
+                    <div style="overflow: hidden;">
+                        <h4 style="color: rgba(255,255,255,0.8); font-size: 1rem; margin: 0 0 0.5rem 0; font-weight: 500; text-transform: uppercase; letter-spacing: 1px;">Email Us</h4>
+                        <p style="color: var(--white); font-size: 1.15rem; font-weight: 600; margin: 0; word-break: break-word;">avinepalpvt.ltd@gmail.com</p>
+                    </div>
+                </a>
+            </div>
+
         </div>
     </section>
 
