@@ -33,23 +33,25 @@
 
         /* Navigation */
         nav {
-            background: var(--white);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            background: linear-gradient(to right, #ffffff 0%, #f8fafc 100%);
+            box-shadow: 0 2px 15px rgba(10, 77, 140, 0.08);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
             transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(10, 77, 140, 0.06);
         }
 
         nav.scrolled {
-            box-shadow: 0 2px 30px rgba(0,0,0,0.12);
+            box-shadow: 0 4px 20px rgba(10, 77, 140, 0.12);
+            background: var(--white);
         }
 
         nav .nav-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 1.2rem 3rem;
+            padding: 1rem 3rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -58,50 +60,60 @@
         nav .logo-section {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         nav .logo-section img {
-            height: 55px;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+            height: 65px;
+            transition: all 0.3s ease;
+            filter: brightness(1.02) contrast(1.05);
+        }
+
+        nav .logo-section img:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.05) contrast(1.08);
         }
 
         nav .logo-text {
-            font-size: 1.3rem;
-            font-weight: 700;
+            font-size: 1.5rem;
+            font-weight: 800;
             color: var(--primary-color);
+            letter-spacing: 0.5px;
             display: none;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
+            gap: 2.8rem;
             align-items: center;
         }
 
         nav a {
             text-decoration: none;
             color: var(--text-dark);
-            font-weight: 500;
+            font-weight: 600;
             font-size: 0.95rem;
             transition: all 0.3s;
             position: relative;
+            padding: 0.5rem 0;
         }
 
         nav a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 0;
-            height: 2px;
-            background: var(--secondary-color);
-            transition: width 0.3s;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: width 0.3s ease;
+            border-radius: 2px;
         }
 
         nav a:hover {
-            color: var(--secondary-color);
+            color: var(--primary-color);
         }
 
         nav a:hover::after {
@@ -596,57 +608,67 @@
             color: rgba(255, 255, 255, 0.9);
         }
 
-        .biosecurity-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+        .biosecurity-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 3rem 4rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             margin-top: 3rem;
         }
 
+        .biosecurity-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem 4rem;
+            margin-bottom: 2.5rem;
+        }
+
         .biosecurity-item {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 2.5rem;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
         }
 
-        .biosecurity-item:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-5px);
-        }
-
-        .biosecurity-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+        .biosecurity-number {
+            min-width: 35px;
+            height: 35px;
+            background: var(--gold);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--white);
+            flex-shrink: 0;
         }
 
         .biosecurity-item h4 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            color: var(--white);
         }
 
         .biosecurity-item p {
             opacity: 0.9;
-            line-height: 1.7;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .quality-statement {
-            margin-top: 4rem;
             text-align: center;
-            padding: 3rem;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .quality-statement p {
-            font-size: 1.3rem;
+            font-size: 1.15rem;
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
+            color: var(--white);
         }
 
         /* Chairman Section */
@@ -722,7 +744,7 @@
 
         /* Contact Section */
         #contact {
-            background: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             color: var(--white);
         }
 
@@ -734,89 +756,107 @@
             color: rgba(255, 255, 255, 0.9);
         }
 
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .contact-card {
+        .contact-container {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            padding: 3rem 2rem;
+            padding: 3rem 4rem;
             border-radius: 20px;
-            text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 3rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem 3rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1.2rem;
+            align-items: flex-start;
+            padding: 1.5rem;
+            border-radius: 12px;
             transition: all 0.3s;
         }
 
-        .contact-card:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-5px);
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.05);
         }
 
-        .contact-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
+        .contact-badge {
+            min-width: 45px;
+            height: 45px;
+            background: var(--gold);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--white);
+            flex-shrink: 0;
         }
 
-        .contact-card h4 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
+        .contact-info h4 {
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
             font-weight: 600;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .contact-card p {
-            font-size: 1.05rem;
-            opacity: 0.9;
+        .contact-info p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.6;
+            margin: 0;
         }
 
-        .contact-card a {
+        .contact-info a {
             color: var(--white);
             text-decoration: none;
-            font-weight: 500;
             transition: all 0.3s;
         }
 
-        .contact-card a:hover {
+        .contact-info a:hover {
             color: var(--gold);
         }
 
-        .contact-card a[target="_blank"]:hover {
-            background: rgba(255,255,255,0.3) !important;
-            transform: translateY(-2px);
+        .contact-map-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 8px 18px;
+            background: rgba(253, 181, 21, 0.2);
+            border: 1px solid var(--gold);
+            border-radius: 8px;
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 0.8rem;
+            transition: all 0.3s;
         }
 
-        .contact-locations {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .contact-quick {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-
-        .contact-quick a:hover,
-        .contact-locations > div:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
-        }
-
-        .contact-quick a:hover .contact-icon,
-        .contact-locations a:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        .contact-map-link:hover {
+            background: var(--gold);
+            color: var(--white);
         }
 
         @media (max-width: 768px) {
-            .contact-locations,
-            .contact-quick {
+            .contact-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .contact-container {
+                padding: 2rem 1.5rem;
             }
         }
 
@@ -979,6 +1019,11 @@
 
             .biosecurity-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .biosecurity-content {
+                padding: 2rem 1.5rem;
             }
 
             .mission-vision {
@@ -1013,11 +1058,9 @@
             <button class="menu-toggle" onclick="toggleMenu()">☰</button>
             <ul id="nav-menu">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#operations">Operations</a></li>
-                <li><a href="#product">Indian River</a></li>
-                <li><a href="#biosecurity">Biosecurity</a></li>
-                <li><a href="#chairman">Chairman</a></li>
+                <li><a href="#product">Products</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -1202,42 +1245,56 @@
                 <p class="section-description">Biosecurity is the cornerstone of our operations</p>
             </div>
 
-            <div class="biosecurity-grid">
-                <div class="biosecurity-item">
-                    <div class="biosecurity-icon">🔒</div>
-                    <h4>Controlled Access</h4>
-                    <p>Strict farm entry protocols and visitor management systems</p>
+            <div class="biosecurity-content">
+                <div class="biosecurity-grid">
+                    <div class="biosecurity-item">
+                        <div class="biosecurity-number">1</div>
+                        <div>
+                            <h4>Controlled Access</h4>
+                            <p>Strict farm entry protocols and visitor management systems</p>
+                        </div>
+                    </div>
+                    <div class="biosecurity-item">
+                        <div class="biosecurity-number">2</div>
+                        <div>
+                            <h4>Health Monitoring</h4>
+                            <p>Routine flock health checks and regular diagnostic testing</p>
+                        </div>
+                    </div>
+                    <div class="biosecurity-item">
+                        <div class="biosecurity-number">3</div>
+                        <div>
+                            <h4>Vaccination Programs</h4>
+                            <p>Comprehensive vaccination schedules following international protocols</p>
+                        </div>
+                    </div>
+                    <div class="biosecurity-item">
+                        <div class="biosecurity-number">4</div>
+                        <div>
+                            <h4>Sanitation Systems</h4>
+                            <p>Strict cleaning and disinfection procedures</p>
+                        </div>
+                    </div>
+                    <div class="biosecurity-item">
+                        <div class="biosecurity-number">5</div>
+                        <div>
+                            <h4>Veterinary Care</h4>
+                            <p>Professional veterinary supervision and consultation</p>
+                        </div>
+                    </div>
+                    <div class="biosecurity-item">
+                        <div class="biosecurity-number">6</div>
+                        <div>
+                            <h4>Performance Tracking</h4>
+                            <p>Continuous monitoring and evaluation of production metrics</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="biosecurity-item">
-                    <div class="biosecurity-icon">🔬</div>
-                    <h4>Health Monitoring</h4>
-                    <p>Routine flock health checks and regular diagnostic testing</p>
-                </div>
-                <div class="biosecurity-item">
-                    <div class="biosecurity-icon">💉</div>
-                    <h4>Vaccination Programs</h4>
-                    <p>Comprehensive vaccination schedules following international protocols</p>
-                </div>
-                <div class="biosecurity-item">
-                    <div class="biosecurity-icon">🧹</div>
-                    <h4>Sanitation Systems</h4>
-                    <p>Strict cleaning and disinfection procedures</p>
-                </div>
-                <div class="biosecurity-item">
-                    <div class="biosecurity-icon">👨‍⚕️</div>
-                    <h4>Veterinary Care</h4>
-                    <p>Professional veterinary supervision and consultation</p>
-                </div>
-                <div class="biosecurity-item">
-                    <div class="biosecurity-icon">📊</div>
-                    <h4>Performance Tracking</h4>
-                    <p>Continuous monitoring and evaluation of production metrics</p>
-                </div>
-            </div>
 
-            <div class="quality-statement">
-                <p>Our goal is to ensure consistent, disease-free, and genetically reliable Parent Stock production.</p>
-                <p style="font-style: italic; opacity: 0.9;">We believe strong genetics must be supported by strong management.</p>
+                <div class="quality-statement">
+                    <p>Our goal is to ensure consistent, disease-free, and genetically reliable Parent Stock production.</p>
+                    <p style="font-style: italic; opacity: 0.85;">We believe strong genetics must be supported by strong management.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1277,48 +1334,49 @@
             <div class="section-header">
                 <span class="section-tag" style="background: var(--gold);">Get in Touch</span>
                 <h2>Contact Us</h2>
-                <p class="section-description">For business inquiries, technical support, or partnership opportunities, please contact us. Our team will be pleased to assist you.</p>
+                <p class="section-description">For business inquiries, technical support, or partnership opportunities</p>
             </div>
 
-            <div class="contact-locations">
-                <!-- Office Location -->
-                <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 2.5rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.2); transition: all 0.3s;">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                        <div style="width: 50px; height: 50px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;">📍</div>
-                        <h4 style="color: var(--white); font-size: 1.4rem; margin: 0; font-weight: 700;">Office Address</h4>
+            <div class="contact-container">
+                <div class="contact-grid">
+                    <!-- Phone -->
+                    <div class="contact-item">
+                        <div class="contact-badge">☎</div>
+                        <div class="contact-info">
+                            <h4>Phone</h4>
+                            <p><a href="tel:+9779855067714">+977 9855067714</a></p>
+                        </div>
                     </div>
-                    <p style="color: rgba(255,255,255,0.95); font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">Ekantakuna-13<br>Lalitpur, Nepal</p>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Ekantakuna+Lalitpur+Nepal" target="_blank" style="display: inline-block; padding: 12px 30px; background: var(--white); color: var(--primary-color); border-radius: 50px; text-decoration: none; font-size: 0.95rem; font-weight: 700; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">View on Google Maps →</a>
+
+                    <!-- Email -->
+                    <div class="contact-item">
+                        <div class="contact-badge">✉</div>
+                        <div class="contact-info">
+                            <h4>Email</h4>
+                            <p><a href="mailto:avinepalpvt.ltd@gmail.com">avinepalpvt.ltd@gmail.com</a></p>
+                        </div>
+                    </div>
+
+                    <!-- Office Address -->
+                    <div class="contact-item">
+                        <div class="contact-badge">▣</div>
+                        <div class="contact-info">
+                            <h4>Office Address</h4>
+                            <p>Ekantakuna-13<br>Lalitpur, Nepal</p>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Ekantakuna+Lalitpur+Nepal" target="_blank" class="contact-map-link">View on Map →</a>
+                        </div>
+                    </div>
+
+                    <!-- Farm Location -->
+                    <div class="contact-item">
+                        <div class="contact-badge">▣</div>
+                        <div class="contact-info">
+                            <h4>Farm Location</h4>
+                            <p>Devbhumi<br>Panchkhal, Nepal</p>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Devbhumi+Panchkhal+Nepal" target="_blank" class="contact-map-link">View on Map →</a>
+                        </div>
+                    </div>
                 </div>
-
-                <!-- Farm Location -->
-                <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 2.5rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.2); transition: all 0.3s;">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                        <div style="width: 50px; height: 50px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;">🏭</div>
-                        <h4 style="color: var(--white); font-size: 1.4rem; margin: 0; font-weight: 700;">Farm Location</h4>
-                    </div>
-                    <p style="color: rgba(255,255,255,0.95); font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">Devbhumi<br>Panchkhal, Nepal</p>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Devbhumi+Panchkhal+Nepal" target="_blank" style="display: inline-block; padding: 12px 30px; background: var(--white); color: var(--primary-color); border-radius: 50px; text-decoration: none; font-size: 0.95rem; font-weight: 700; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">View on Google Maps →</a>
-                </div>
-            </div>
-
-            <!-- Contact Info -->
-            <div class="contact-quick">
-                <a href="tel:+9779855067714" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 2rem 2.5rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.2); display: flex; align-items: center; gap: 1.5rem; text-decoration: none; transition: all 0.3s;">
-                    <div style="width: 60px; height: 60px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; flex-shrink: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">📞</div>
-                    <div>
-                        <h4 style="color: rgba(255,255,255,0.8); font-size: 1rem; margin: 0 0 0.5rem 0; font-weight: 500; text-transform: uppercase; letter-spacing: 1px;">Call Us</h4>
-                        <p style="color: var(--white); font-size: 1.4rem; font-weight: 700; margin: 0;">+977 9855067714</p>
-                    </div>
-                </a>
-
-                <a href="mailto:avinepalpvt.ltd@gmail.com" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 2rem 2.5rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.2); display: flex; align-items: center; gap: 1.5rem; text-decoration: none; transition: all 0.3s;">
-                    <div style="width: 60px; height: 60px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; flex-shrink: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">✉️</div>
-                    <div style="overflow: hidden;">
-                        <h4 style="color: rgba(255,255,255,0.8); font-size: 1rem; margin: 0 0 0.5rem 0; font-weight: 500; text-transform: uppercase; letter-spacing: 1px;">Email Us</h4>
-                        <p style="color: var(--white); font-size: 1.15rem; font-weight: 600; margin: 0; word-break: break-word;">avinepalpvt.ltd@gmail.com</p>
-                    </div>
-                </a>
             </div>
 
         </div>
@@ -1334,10 +1392,10 @@
             <div class="footer-section">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#about">About</a></li>
                     <li><a href="#operations">Operations</a></li>
-                    <li><a href="#product">Indian River</a></li>
-                    <li><a href="#biosecurity">Biosecurity</a></li>
+                    <li><a href="#product">Products</a></li>
+                    <li><a href="#biosecurity">Quality & Biosecurity</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -1350,11 +1408,14 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Avi Nepal Pvt. Ltd. All rights reserved. | Delivering Excellence in Poultry Genetics</p>
+            <p>&copy; <span id="currentYear"></span> Avi Nepal Pvt. Ltd. All rights reserved. | Delivering Excellence in Poultry Genetics</p>
         </div>
     </footer>
 
     <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
         // Toggle mobile menu
         function toggleMenu() {
             const menu = document.getElementById('nav-menu');
